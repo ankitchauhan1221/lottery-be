@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Include SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<!-- Include SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mahakal Jackpot - Play Big, Win Bigger</title>
+    <!-- site favicon -->
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.jpg">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- animate css link -->
+    <link rel="stylesheet" href="/css/animate.css">
+    <!-- lightcase css link -->
+    <link rel="stylesheet" href="/css/lightcase.css">
+    <!-- slick css link -->
+    <link rel="stylesheet" href="/css/slick.css">
+    <!-- swiper css link -->
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <!-- flipclock css link -->
+    <link rel="stylesheet" href="/css/flipclock.css">
+    <!-- jqvmap css link -->
+    <link rel="stylesheet" href="/css/jqvmap.min.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- responsive css link -->
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+
+<body>
+
+    <!-- preloader start -->
+    <div id="preloader"></div>
+    <!-- preloader end -->
+
+    <!--  header-section start  -->
+    <header class="header-section">
+        <div class="header-bottom">
+            <div class="container">
+                <nav class="navbar navbar-expand-xl justify-content-center">
+                    <a class="site-logo site-title" href="/">Mahakal Jackpot</a>
+                    <button class="navbar-toggler d-sm-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="menu-toggle d-sm-none"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between d-sm-none" id="navbarSupportedContent">
+                        <ul class="navbar-nav main-menu ms-auto">
+                            <li><a href="contact.html"></a></li>
+                        </ul>
+                        <div class="header-join-part d-sm-none">
+                            <button type="button" class="cmn-btn" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">join
+                                us</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div><!-- header-bottom end -->
+    </header>
+    <!--  header-section end  -->
+
+     <!--login registration Modal -->
+<!--  login registration Modal -->
+<div class="modal fade login-registration-modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="login-registration-area">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Update Lottery Number</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                            <form class="login-form cmn-frm" id="lottery-number-form">
+                                <div class="frm-group">
+                                    <label>Enter Number</label>
+                                    <input type="text" name="lottery_number" id="lottery_number" placeholder="Enter Lottery Number" required>
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="frm-group">
+                                    <input type="submit" name="submit_lottery_number" id="submit_lottery_number" value="Submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('lottery-number-form').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get the lottery number from the input and convert it to an integer
+        const lotteryNumber = parseInt(document.getElementById('lottery_number').value, 10);
+
+        // Validate the input number
+        if (isNaN(lotteryNumber) || lotteryNumber < 0 || lotteryNumber > 99) {
+            await Swal.fire({
+                icon: 'error',
+                title: 'Invalid Input',
+                text: 'Please enter a number between 0 and 99.',
+                confirmButtonText: 'OK'
+            });
+            return; // Stop execution if the input is invalid
+        }
+
+        // Prepare the data to be sent in the POST request
+        const data = {
+            number: lotteryNumber // Use the key 'number' to match the backend
+        };
+
+        try {
+            // Send a POST request to the submit_data API
+            const response = await fetch('http://localhost:5000/submit_data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json(); // Parse the JSON response
+
+            if (response.ok) {
+                // Submission successful
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Number Submitted',
+                    text: result.message, // Adjust the message based on your API response
+                    confirmButtonText: 'OK'
+                });
+
+                // Optionally, close the modal or reset the form
+                const modal = bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
+                modal.hide();
+                document.getElementById('lottery-number-form').reset(); // Reset the form
+            } else {
+                // Submission failed
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Submission Failed',
+                    text: result.error, // Adjust based on your API response
+                    confirmButtonText: 'Try Again'
+                });
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'An error occurred while submitting the lottery number. Please try again.',
+                confirmButtonText: 'OK'
+            });
+        }
+    });
+</script>
+
+
+    <!-- contact-section start -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="contact-wrapper">
+            <div class="contact-area d-flex">
+              <div class="contact-form-area">
+                <h3 class="title">Admin</h3>
+                <!-- <p>If you have any questions or queries our helpful support team will be more than happy to assist.</p> -->
+                <form class="login-form cmn-frm" id="login-form">
+                    <div class="frm-group">
+                        <label>Username or Email Address</label>
+                        <input type="email" name="username" id="login_email" placeholder="Username or Email Address" required>
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="frm-group">
+                        <label>Password</label>
+                        <input type="password" name="password" id="login_pass" placeholder="Enter Password" required>
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div class="frm-group">
+                        <input type="submit" name="registration_submit2" id="registration_submit2" value="Login">
+                    </div>
+                    <div class="frm-group">
+                        <div class="checkbox-area">
+                            <input type="checkbox" id="login_remember_pass">
+                            <label for="login_remember_pass">Remember Password</label>
+                        </div>
+                    </div>
+                    <div class="frm-group">
+                        <div class="or-text">
+                            <span>use admin login password</span>
+                        </div>
+                    </div>
+                </form>
+                
+                <script>
+                    document.getElementById('login-form').addEventListener('submit', async function(event) {
+                        event.preventDefault(); // Prevent the default form submission
+                
+                        // Get values from the form
+                        const username = document.querySelector('input[name="username"]').value; // Use name attribute to access
+                        const password = document.querySelector('input[name="password"]').value; // Use name attribute to access
+                
+                        // Prepare the data to be sent in the POST request
+                        const data = {
+                            username: username,
+                            password: password
+                        };
+                
+                        try {
+                            // Send a POST request to the login API
+                            const response = await fetch('http://localhost:5000/login', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(data)
+                            });
+                
+                            const result = await response.json(); // Parse the JSON response
+                
+                            if (response.ok) {
+                                // Login successful
+                                await Swal.fire({
+                                    icon: 'success',
+                                    title: 'Login Successful',
+                                    text: result.message,
+                                    confirmButtonText: 'OK'
+                                });
+                
+                                // Show the modal
+                                const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+                                modal.show();
+                            } else {
+                                // Login failed
+                                await Swal.fire({
+                                    icon: 'error',
+                                    title: 'Login Failed',
+                                    text: result.error,
+                                    confirmButtonText: 'Try Again'
+                                });
+                            }
+                        } catch (error) {
+                            console.error('Error:', error);
+                            await Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'An error occurred while logging in. Please try again.',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    });
+                </script>
+                
+                
+                
+              </div><!-- contact-form-area end -->
+              <div class="address-area has_bg_image" data-background="/images/contact-mg.jpg">
+                <!-- <div class="address-area-header">
+                  <h3 class="title">We Are Available</h3>
+                  <span>24 Hours A Day, 365 Days A Year</span>
+                </div> -->
+                <div class="contact-address">
+                  <h3 class="title"></h3>
+                  <ul>
+                    <li>
+                      <div class="icon"><i class=""></i></div>
+                      <div class="content">
+                        <!-- <p>012 345 6789</p> -->
+                        <!-- <p>012 345 6789</p> -->
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon"><i class=""></i></div>
+                      <div class="content">
+                        <!-- <p><a href="https://pixner.net/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e881868e87a89b879a9c8d87c68b8785">[email&#160;protected]</a></p>
+                        <p><a href="https://pixner.net/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d7beb9b1b897a4b8a5a3b2b8f9b4b8ba">[email&#160;protected]</a></p> -->
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- contact-section end -->
+
+  
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <!-- bootstrap js file -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- flipclock js file -->
+    <script src="/js/flipclock.min.js"></script>
+    <!-- countdown js file -->
+    <script src="/js/jquery.countdown.min.js"></script>
+    <!-- slick js file -->
+    <script src="/js/slick.min.js"></script>
+    <!-- swiper js file -->
+    <script src="/js/swiper.min.js"></script>
+    <!-- lightcase js file -->
+    <script src="/js/lightcase.js"></script>
+    <!-- wow js file -->
+    <script src="/js/wow.min.js"></script>
+    <!-- vamp js files -->
+    <script src="/js/jquery.vmap.min.js"></script>
+    <script src="/js/jquery.vmap.world.js"></script>
+    <!-- google map init js file -->
+    <script src="/js/goolg-map-activate.js"></script>
+    <!-- google map api -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqFuLx8S7A8eianoUhkYMeXpGPvsXp1NM&amp;callback=initMap"
+        async defer></script>
+    <!-- main script js file -->
+    <script src="/js/main.js"></script>
+</body>
+
+<!-- Mirrored from www.pixner.net/sorteo/Sorteo/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 16 Oct 2024 15:13:19 GMT -->
+
+</html>
