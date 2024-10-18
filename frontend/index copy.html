@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mahakal Jackpot - Play Big, Win Bigger</title>
+  <!-- site favicon -->
+  <link rel="shortcut icon" type="image/png" href="images/favicon.jpg">
+  <!-- fontawesome css link -->
+  <link rel="stylesheet" href="css/fontawesome.min.css">
+  <!-- bootstrap css link -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- animate css link -->
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- lightcase css link -->
+  <link rel="stylesheet" href="css/lightcase.css">
+  <!-- slick css link -->
+  <link rel="stylesheet" href="css/slick.css">
+  <!-- swiper css link -->
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <!-- flipclock css link -->
+  <link rel="stylesheet" href="css/flipclock.css">
+  <!-- jqvmap css link -->
+  <link rel="stylesheet" href="css/jqvmap.min.css">
+  <!-- main style css link -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- responsive css link -->
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <!-- preloader start -->
+  <div id="preloader"></div>
+  <!-- preloader end -->
+
+  <!--  header-section start  -->
+  <header class="header-section">
+    <div class="header-bottom">
+      <div class="container">
+        <nav class="navbar navbar-expand-xl">
+          <a class="site-logo site-title" href="index.html">
+            <span class="first-letter" style="color: #df2a44; font-size: 37px;">M</span>ahakal Jackpot
+          </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="menu-toggle"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+            <ul class="navbar-nav main-menu ms-auto">
+              <li><a href="#"></a></li>
+            </ul>
+            <div class="header-join-part">
+              <button type="button" class="cmn-btn" style="background-color: #d54056;" data-bs-toggle="modal" data-bs-target="#exampleModal">join
+                us</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div><!-- header-bottom end -->
+  </header>
+  <!--  header-section end  -->
+
+  <!-- inner-page-banner start -->
+  <section class="inner-page-banner has_bg_image" data-background="images/inner-page-bg.jpg">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="inner-page-banner-area ticket-design">
+            <div class="ticket-header">
+              <h2>Mahakal Jackpot</h2>
+              <p>Lottery Number</p>
+            </div>
+            <div class="lottery-number-area">
+              <h1 class="page-title lottery-number" id="lottery-number">43</h1>
+            </div>
+            <div class="ticket-footer">
+              <p id="draw-date"></p> <!-- Updated to include ID -->
+              <div class="highlight-time">Time: <span id="draw-time"></span></div>
+              <p>Good Luck!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- inner-page-banner end -->
+
+  <!-- single-categories-play-section start -->
+  <section class="single-categories-play-section section-padding">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="single-header d-flex justify-content-center p-3" style="background-color: #000;">
+            <div class="left d-flex">
+              <div class="icon">
+                <img src="images/jackpot-1.png" alt="">
+              </div>
+              <div class="content">
+                <h3 class="title-1">Mahakal Jackpot</h3>
+                <span class="amount right text-end">1000</span> <span class="active-visitors" style="color: #fff;">Active Visitors</span>
+              </div>
+            </div>
+            <div class="right text-end">
+              <!-- <span class="draw-days">draw in every 30 minutes</span> -->
+              <div class="header-btn-area">
+                <!-- <button type="button" id="quick-pick-all">2024<i class="fa fa-chevron-down"
+                      style="margin-left: 10px;"></i>
+                  </button> -->
+              </div>
+            </div>
+          </div>
+          <table class="table text-center table-bordered lottery table12">
+            <tbody>
+                <tr class="head_name" style="font-weight: bold;">
+                    <td style="background: #000 !important; color: #fff;">S.no</td>
+                    <td style="background: #000 !important; color: #fff;">Game</td>
+                    <td style="background: #000 !important; color: #fff;">Time</td>
+                    <td style="background: #000 !important; color: #fff;">Old</td>
+                    <td style="background: #000 !important; color: #fff;">New</td>
+                </tr>
+                <!-- Dynamic Rows will be inserted here -->
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  
+
+<script>
+    async function fetchLatestData() {
+    console.log("Fetching latest data..."); // Log to confirm function call
+    try {
+        const response = await fetch('http://127.0.0.1:5000/latest_dates');
+        console.log("Response received:", response); // Log the response
+
+        // Check if the response is ok (status code 200-299)
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Data received:", data); // Log the data received
+
+        // If there's an error or no records, handle it
+        if (data.error) {
+            console.error(data.error);
+            return;
+        }
+
+        const latestDate = data.latest_date;
+        const secondLatestDate = data.second_latest_date || {};
+
+        const times = [
+            "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM",
+            "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM",
+            "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM",
+            "05:30 PM", "06:00 PM", "06:30 PM", "07:00 PM", "07:30 PM",
+            "08:00 PM", "08:30 PM", "09:00 PM", "09:30 PM", "10:00 PM",
+            "10:30 PM", "11:00 PM"
+        ];
+
+        const tableBody = document.querySelector('.table12 tbody');
+
+        times.forEach((time, index) => {
+            const oldValue = secondLatestDate[time] !== undefined ? secondLatestDate[time] : 'wait..';
+            const newValue = latestDate[time] !== undefined ? latestDate[time] : 'wait..';
+
+            const row = `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>MAHAKAL JACKPOT</td>
+                    <td>${time}</td>
+                    <td class="old-value">${oldValue}</td>
+                    <td class="new-value"><span>${newValue}</span></td>
+                </tr>
+            `;
+            tableBody.insertAdjacentHTML('beforeend', row);
+        });
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+</script>
+  <div class="single-header d-flex justify-content-between align-items-center p-3" style="background-color: #000;">
+    <div class="left d-flex">
+      <div class="icon">
+        <!-- <img src="images/jackpot-1.png" alt=""> -->
+      </div>
+      <div class="content">
+        <h3 class="title-1" style="color: #fff;">Mahakal Jackpot Chart</h3>
+        <!-- <span class="amount right text-end">1000</span> Active Visitors -->
+      </div>
+    </div>
+    <div class="right text-end">
+      <!-- <span class="draw-days">draw in every 30 minutes</span> -->
+      <div class="header-btn-area">
+        <!-- <button type="button" id="quick-pick-all" style="color: #fff;">2024<i class="fa fa-chevron-down"
+            style="margin-left: 10px; color: #fff;"></i>
+        </button> -->
+      </div>
+    </div>
+  </div>
+  <div class="month_table ">
+    <table class="table text-center text-uppercase  table-bordered table22">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>10:00 AM</th>
+          <th>10:30 AM</th>
+          <th>11:00 AM</th>
+          <th>11:30 AM</th>
+          <th>12:00 PM</th>
+          <th>12:30 PM</th>
+          <th>01:00 PM</th>
+          <th>01:30 PM</th>
+          <th>02:00 PM</th>
+          <th>02:30 PM</th>
+          <th>03:00 PM</th>
+          <th>03:30 PM</th>
+          <th>04:00 PM</th>
+          <th>04:30 PM</th>
+          <th>05:00 PM</th>
+          <th>05:30 PM</th>
+          <th>06:00 PM</th>
+          <th>06:30 PM</th>
+          <th>07:00 PM</th>
+          <th>07:30 PM</th>
+          <th>08:00 PM</th>
+          <th>08:30 PM</th>
+          <th>09:00 PM</th>
+          <th>09:30 PM</th>
+          <th>10:00 PM</th>
+          <th>10:30 PM</th>
+          <th>11:00 PM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="ml22024-10-01">
+          <td class="ldated">01-10-2024</td>
+          <td class="td1000AM">02</td>
+          <td class="td1030AM">81</td>
+          <td class="td1100AM">07</td>
+          <td class="td1130AM">16</td>
+          <td class="td1200PM">13</td>
+          <td class="td1230PM">75</td>
+          <td class="td0100PM">21</td>
+          <td class="td0130PM">52</td>
+          <td class="td0200PM">95</td>
+          <td class="td0230PM">62</td>
+          <td class="td0300PM">65</td>
+          <td class="td0330PM">92</td>
+          <td class="td0400PM">29</td>
+          <td class="td0430PM">48</td>
+          <td class="td0500PM">83</td>
+          <td class="td0530PM">80</td>
+          <td class="td0600PM">65</td>
+          <td class="td0630PM">70</td>
+          <td class="td0700PM">60</td>
+          <td class="td0730PM">67</td>
+          <td class="td0800PM">30</td>
+          <td class="td0830PM">85</td>
+          <td class="td0900PM">52</td>
+          <td class="td0930PM">84</td>
+          <td class="td1000PM">45</td>
+          <td class="td1030PM">46</td>
+          <td class="td1100PM">57</td>
+        </tr>
+        <tr class="ml22024-10-02">
+          <td class="ldated">02-10-2024</td>
+
+          <td class="td1000AM">53</td>
+          <td class="td1030AM">89</td>
+          <td class="td1100AM">50</td>
+          <td class="td1130AM">96</td>
+          <td class="td1200PM">68</td>
+          <td class="td1230PM">13</td>
+          <td class="td0100PM">71</td>
+          <td class="td0130PM">86</td>
+          <td class="td0200PM">81</td>
+          <td class="td0230PM">91</td>
+          <td class="td0300PM">18</td>
+          <td class="td0330PM">16</td>
+          <td class="td0400PM">82</td>
+          <td class="td0430PM">51</td>
+          <td class="td0500PM">47</td>
+          <td class="td0530PM">98</td>
+          <td class="td0600PM">20</td>
+          <td class="td0630PM">57</td>
+          <td class="td0700PM">42</td>
+          <td class="td0730PM">62</td>
+          <td class="td0800PM">35</td>
+          <td class="td0830PM">33</td>
+          <td class="td0900PM">27</td>
+          <td class="td0930PM">25</td>
+          <td class="td1000PM">78</td>
+          <td class="td1030PM">21</td>
+          <td class="td1100PM">91</td>
+        </tr>
+        <tr class="ml22024-10-03">
+          <td class="ldated">03-10-2024</td>
+
+          <td class="td1000AM">95</td>
+          <td class="td1030AM">60</td>
+          <td class="td1100AM">66</td>
+          <td class="td1130AM">13</td>
+          <td class="td1200PM">63</td>
+          <td class="td1230PM">38</td>
+          <td class="td0100PM">07</td>
+          <td class="td0130PM">57</td>
+          <td class="td0200PM">24</td>
+          <td class="td0230PM">70</td>
+          <td class="td0300PM">72</td>
+          <td class="td0330PM">27</td>
+          <td class="td0400PM">20</td>
+          <td class="td0430PM">03</td>
+          <td class="td0500PM">28</td>
+          <td class="td0530PM">43</td>
+          <td class="td0600PM">92</td>
+          <td class="td0630PM">54</td>
+          <td class="td0700PM">57</td>
+          <td class="td0730PM">93</td>
+          <td class="td0800PM">51</td>
+          <td class="td0830PM">15</td>
+          <td class="td0900PM">43</td>
+          <td class="td0930PM">21</td>
+          <td class="td1000PM">40</td>
+          <td class="td1030PM">31</td>
+          <td class="td1100PM">04</td>
+        </tr>
+        <tr class="ml22024-10-04">
+          <td class="ldated">04-10-2024</td>
+
+          <td class="td1000AM">67</td>
+          <td class="td1030AM">57</td>
+          <td class="td1100AM">13</td>
+          <td class="td1130AM">02</td>
+          <td class="td1200PM">08</td>
+          <td class="td1230PM">21</td>
+          <td class="td0100PM">12</td>
+          <td class="td0130PM">60</td>
+          <td class="td0200PM">00</td>
+          <td class="td0230PM">47</td>
+          <td class="td0300PM">24</td>
+          <td class="td0330PM">84</td>
+          <td class="td0400PM">42</td>
+          <td class="td0430PM">51</td>
+          <td class="td0500PM">42</td>
+          <td class="td0530PM">65</td>
+          <td class="td0600PM">81</td>
+          <td class="td0630PM">39</td>
+          <td class="td0700PM">61</td>
+          <td class="td0730PM">58</td>
+          <td class="td0800PM">52</td>
+          <td class="td0830PM">61</td>
+          <td class="td0900PM">34</td>
+          <td class="td0930PM">50</td>
+          <td class="td1000PM">56</td>
+          <td class="td1030PM">52</td>
+          <td class="td1100PM">60</td>
+        </tr>
+        <tr class="ml22024-10-05">
+          <td class="ldated">05-10-2024</td>
+
+          <td class="td1000AM">40</td>
+          <td class="td1030AM">90</td>
+          <td class="td1100AM">85</td>
+          <td class="td1130AM">48</td>
+          <td class="td1200PM">70</td>
+          <td class="td1230PM">97</td>
+          <td class="td0100PM">74</td>
+          <td class="td0130PM">71</td>
+          <td class="td0200PM">16</td>
+          <td class="td0230PM">86</td>
+          <td class="td0300PM">35</td>
+          <td class="td0330PM">81</td>
+          <td class="td0400PM">60</td>
+          <td class="td0430PM">40</td>
+          <td class="td0500PM">57</td>
+          <td class="td0530PM">07</td>
+          <td class="td0600PM">75</td>
+          <td class="td0630PM">46</td>
+          <td class="td0700PM">30</td>
+          <td class="td0730PM">80</td>
+          <td class="td0800PM">84</td>
+          <td class="td0830PM">19</td>
+          <td class="td0900PM">69</td>
+          <td class="td0930PM">64</td>
+          <td class="td1000PM">62</td>
+          <td class="td1030PM">54</td>
+          <td class="td1100PM">71</td>
+        </tr>
+        <tr class="ml22024-10-06">
+          <td class="ldated">06-10-2024</td>
+
+          <td class="td1000AM">42</td>
+          <td class="td1030AM">29</td>
+          <td class="td1100AM">79</td>
+          <td class="td1130AM">62</td>
+          <td class="td1200PM">66</td>
+          <td class="td1230PM">24</td>
+          <td class="td0100PM">54</td>
+          <td class="td0130PM">88</td>
+          <td class="td0200PM">35</td>
+          <td class="td0230PM">52</td>
+          <td class="td0300PM">51</td>
+          <td class="td0330PM">91</td>
+          <td class="td0400PM">34</td>
+          <td class="td0430PM">93</td>
+          <td class="td0500PM">96</td>
+          <td class="td0530PM">08</td>
+          <td class="td0600PM">72</td>
+          <td class="td0630PM">79</td>
+          <td class="td0700PM">97</td>
+          <td class="td0730PM">96</td>
+          <td class="td0800PM">94</td>
+          <td class="td0830PM">52</td>
+          <td class="td0900PM">89</td>
+          <td class="td0930PM">22</td>
+          <td class="td1000PM">09</td>
+          <td class="td1030PM">92</td>
+          <td class="td1100PM">44</td>
+        </tr>
+        <tr class="ml22024-10-07">
+          <td class="ldated">07-10-2024</td>
+
+          <td class="td1000AM">34</td>
+          <td class="td1030AM">45</td>
+          <td class="td1100AM">69</td>
+          <td class="td1130AM">05</td>
+          <td class="td1200PM">58</td>
+          <td class="td1230PM">69</td>
+          <td class="td0100PM">76</td>
+          <td class="td0130PM">93</td>
+          <td class="td0200PM">36</td>
+          <td class="td0230PM">79</td>
+          <td class="td0300PM">56</td>
+          <td class="td0330PM">67</td>
+          <td class="td0400PM">19</td>
+          <td class="td0430PM">08</td>
+          <td class="td0500PM">73</td>
+          <td class="td0530PM">74</td>
+          <td class="td0600PM">71</td>
+          <td class="td0630PM">93</td>
+          <td class="td0700PM">86</td>
+          <td class="td0730PM">33</td>
+          <td class="td0800PM">67</td>
+          <td class="td0830PM">43</td>
+          <td class="td0900PM">62</td>
+          <td class="td0930PM">61</td>
+          <td class="td1000PM">34</td>
+          <td class="td1030PM">73</td>
+          <td class="td1100PM">50</td>
+        </tr>
+        <tr class="ml22024-10-08">
+          <td class="ldated">08-10-2024</td>
+
+          <td class="td1000AM">82</td>
+          <td class="td1030AM">30</td>
+          <td class="td1100AM">04</td>
+          <td class="td1130AM">18</td>
+          <td class="td1200PM">10</td>
+          <td class="td1230PM">78</td>
+          <td class="td0100PM">83</td>
+          <td class="td0130PM">89</td>
+          <td class="td0200PM">13</td>
+          <td class="td0230PM">87</td>
+          <td class="td0300PM">03</td>
+          <td class="td0330PM">77</td>
+          <td class="td0400PM">07</td>
+          <td class="td0430PM">96</td>
+          <td class="td0500PM">21</td>
+          <td class="td0530PM">62</td>
+          <td class="td0600PM">06</td>
+          <td class="td0630PM">27</td>
+          <td class="td0700PM">94</td>
+          <td class="td0730PM">88</td>
+          <td class="td0800PM">40</td>
+          <td class="td0830PM">80</td>
+          <td class="td0900PM"></td>
+          <td class="td0930PM">76</td>
+          <td class="td1000PM">44</td>
+          <td class="td1030PM">00</td>
+          <td class="td1100PM">13</td>
+        </tr>
+        <tr class="ml22024-10-09">
+          <td class="ldated">09-10-2024</td>
+
+          <td class="td1000AM">40</td>
+          <td class="td1030AM">44</td>
+          <td class="td1100AM">42</td>
+          <td class="td1130AM">77</td>
+          <td class="td1200PM">43</td>
+          <td class="td1230PM">27</td>
+          <td class="td0100PM">10</td>
+          <td class="td0130PM">70</td>
+          <td class="td0200PM">05</td>
+          <td class="td0230PM">35</td>
+          <td class="td0300PM">02</td>
+          <td class="td0330PM">86</td>
+          <td class="td0400PM">67</td>
+          <td class="td0430PM">56</td>
+          <td class="td0500PM">05</td>
+          <td class="td0530PM">91</td>
+          <td class="td0600PM">57</td>
+          <td class="td0630PM">57</td>
+          <td class="td0700PM">63</td>
+          <td class="td0730PM">59</td>
+          <td class="td0800PM">30</td>
+          <td class="td0830PM">53</td>
+          <td class="td0900PM">79</td>
+          <td class="td0930PM">19</td>
+          <td class="td1000PM">90</td>
+          <td class="td1030PM">61</td>
+          <td class="td1100PM">86</td>
+        </tr>
+        <tr class="ml22024-10-10">
+          <td class="ldated">10-10-2024</td>
+
+          <td class="td1000AM">98</td>
+          <td class="td1030AM">16</td>
+          <td class="td1100AM">37</td>
+          <td class="td1130AM">42</td>
+          <td class="td1200PM">74</td>
+          <td class="td1230PM">97</td>
+          <td class="td0100PM">25</td>
+          <td class="td0130PM">08</td>
+          <td class="td0200PM">99</td>
+          <td class="td0230PM">87</td>
+          <td class="td0300PM">94</td>
+          <td class="td0330PM">99</td>
+          <td class="td0400PM">98</td>
+          <td class="td0430PM">55</td>
+          <td class="td0500PM">09</td>
+          <td class="td0530PM">02</td>
+          <td class="td0600PM">99</td>
+          <td class="td0630PM">02</td>
+          <td class="td0700PM">68</td>
+          <td class="td0730PM">34</td>
+          <td class="td0800PM">07</td>
+          <td class="td0830PM">06</td>
+          <td class="td0900PM">23</td>
+          <td class="td0930PM">03</td>
+          <td class="td1000PM">08</td>
+          <td class="td1030PM">95</td>
+          <td class="td1100PM">94</td>
+        </tr>
+        <tr class="ml22024-10-11">
+          <td class="ldated">11-10-2024</td>
+
+          <td class="td1000AM">43</td>
+          <td class="td1030AM">25</td>
+          <td class="td1100AM">70</td>
+          <td class="td1130AM">51</td>
+          <td class="td1200PM">39</td>
+          <td class="td1230PM">09</td>
+          <td class="td0100PM">69</td>
+          <td class="td0130PM">17</td>
+          <td class="td0200PM">05</td>
+          <td class="td0230PM">42</td>
+          <td class="td0300PM">31</td>
+          <td class="td0330PM">22</td>
+          <td class="td0400PM">27</td>
+          <td class="td0430PM">36</td>
+          <td class="td0500PM">61</td>
+          <td class="td0530PM">57</td>
+          <td class="td0600PM">00</td>
+          <td class="td0630PM">01</td>
+          <td class="td0700PM">99</td>
+          <td class="td0730PM">79</td>
+          <td class="td0800PM">41</td>
+          <td class="td0830PM">61</td>
+          <td class="td0900PM">80</td>
+          <td class="td0930PM">69</td>
+          <td class="td1000PM">48</td>
+          <td class="td1030PM">50</td>
+          <td class="td1100PM">30</td>
+        </tr>
+        <tr class="ml22024-10-12">
+          <td class="ldated">12-10-2024</td>
+
+          <td class="td1000AM">77</td>
+          <td class="td1030AM">51</td>
+          <td class="td1100AM">94</td>
+          <td class="td1130AM">76</td>
+          <td class="td1200PM">08</td>
+          <td class="td1230PM">01</td>
+          <td class="td0100PM">95</td>
+          <td class="td0130PM">40</td>
+          <td class="td0200PM">51</td>
+          <td class="td0230PM">83</td>
+          <td class="td0300PM">48</td>
+          <td class="td0330PM">04</td>
+          <td class="td0400PM">09</td>
+          <td class="td0430PM">63</td>
+          <td class="td0500PM">30</td>
+          <td class="td0530PM">63</td>
+          <td class="td0600PM">27</td>
+          <td class="td0630PM">51</td>
+          <td class="td0700PM">66</td>
+          <td class="td0730PM">37</td>
+          <td class="td0800PM">52</td>
+          <td class="td0830PM">65</td>
+          <td class="td0900PM">72</td>
+          <td class="td0930PM">81</td>
+          <td class="td1000PM">89</td>
+          <td class="td1030PM">90</td>
+          <td class="td1100PM">08</td>
+        </tr>
+        <tr class="ml22024-10-13">
+          <td class="ldated">13-10-2024</td>
+
+          <td class="td1000AM">78</td>
+          <td class="td1030AM">47</td>
+          <td class="td1100AM">60</td>
+          <td class="td1130AM">03</td>
+          <td class="td1200PM">13</td>
+          <td class="td1230PM">33</td>
+          <td class="td0100PM">92</td>
+          <td class="td0130PM">07</td>
+          <td class="td0200PM">83</td>
+          <td class="td0230PM">71</td>
+          <td class="td0300PM">34</td>
+          <td class="td0330PM">38</td>
+          <td class="td0400PM">14</td>
+          <td class="td0430PM">84</td>
+          <td class="td0500PM">49</td>
+          <td class="td0530PM">88</td>
+          <td class="td0600PM">53</td>
+          <td class="td0630PM">99</td>
+          <td class="td0700PM">41</td>
+          <td class="td0730PM">90</td>
+          <td class="td0800PM">92</td>
+          <td class="td0830PM">42</td>
+          <td class="td0900PM">42</td>
+          <td class="td0930PM">90</td>
+          <td class="td1000PM">08</td>
+          <td class="td1030PM">44</td>
+          <td class="td1100PM">93</td>
+        </tr>
+        <tr class="ml22024-10-14">
+          <td class="ldated">14-10-2024</td>
+
+          <td class="td1000AM">83</td>
+          <td class="td1030AM">92</td>
+          <td class="td1100AM">99</td>
+          <td class="td1130AM">27</td>
+          <td class="td1200PM">48</td>
+          <td class="td1230PM">33</td>
+          <td class="td0100PM">58</td>
+          <td class="td0130PM">50</td>
+          <td class="td0200PM">90</td>
+          <td class="td0230PM">98</td>
+          <td class="td0300PM">13</td>
+          <td class="td0330PM">50</td>
+          <td class="td0400PM">21</td>
+          <td class="td0430PM">30</td>
+          <td class="td0500PM">61</td>
+          <td class="td0530PM">43</td>
+          <td class="td0600PM">53</td>
+          <td class="td0630PM">57</td>
+          <td class="td0700PM">62</td>
+          <td class="td0730PM">72</td>
+          <td class="td0800PM">82</td>
+          <td class="td0830PM">05</td>
+          <td class="td0900PM">60</td>
+          <td class="td0930PM">08</td>
+          <td class="td1000PM">32</td>
+          <td class="td1030PM">59</td>
+          <td class="td1100PM">90</td>
+        </tr>
+        <tr class="ml22024-10-15">
+          <td class="ldated">15-10-2024</td>
+
+          <td class="td1000AM">84</td>
+          <td class="td1030AM">06</td>
+          <td class="td1100AM">64</td>
+          <td class="td1130AM">11</td>
+          <td class="td1200PM">82</td>
+          <td class="td1230PM">68</td>
+          <td class="td0100PM">14</td>
+          <td class="td0130PM">20</td>
+          <td class="td0200PM">86</td>
+          <td class="td0230PM">47</td>
+          <td class="td0300PM">20</td>
+          <td class="td0330PM">95</td>
+          <td class="td0400PM">43</td>
+          <td class="td0430PM">04</td>
+          <td class="td0500PM">16</td>
+          <td class="td0530PM">16</td>
+          <td class="td0600PM">37</td>
+          <td class="td0630PM">30</td>
+          <td class="td0700PM">52</td>
+          <td class="td0730PM">74</td>
+          <td class="td0800PM">27</td>
+          <td class="td0830PM">61</td>
+          <td class="td0900PM">34</td>
+          <td class="td0930PM">80</td>
+          <td class="td1000PM">20</td>
+          <td class="td1030PM">40</td>
+          <td class="td1100PM">90</td>
+        </tr>
+        <tr class="ml22024-10-16">
+          <td class="ldated">16-10-2024</td>
+
+          <td class="td1000AM">64</td>
+          <td class="td1030AM">70</td>
+          <td class="td1100AM">17</td>
+          <td class="td1130AM">81</td>
+          <td class="td1200PM">60</td>
+          <td class="td1230PM">11</td>
+          <td class="td0100PM">84</td>
+          <td class="td0130PM">71</td>
+          <td class="td0200PM">02</td>
+          <td class="td0230PM">86</td>
+          <td class="td0300PM">04</td>
+          <td class="td0330PM">72</td>
+          <td class="td0400PM">28</td>
+          <td class="td0430PM">02</td>
+          <td class="td0500PM">49</td>
+          <td class="td0530PM">30</td>
+          <td class="td0600PM">19</td>
+          <td class="td0630PM">01</td>
+          <td class="td0700PM">50</td>
+          <td class="td0730PM">92</td>
+          <td class="td0800PM">07</td>
+          <td class="td0830PM">02</td>
+          <td class="td0900PM">73</td>
+          <td class="td0930PM">70</td>
+          <td class="td1000PM">39</td>
+          <td class="td1030PM">78</td>
+          <td class="td1100PM">87</td>
+        </tr>
+        <tr class="ml22024-10-17">
+          <td class="ldated">17-10-2024</td>
+
+          <td class="td1000AM">05</td>
+          <td class="td1030AM">88</td>
+          <td class="td1100AM">59</td>
+          <td class="td1130AM">09</td>
+          <td class="td1200PM">29</td>
+          <td class="td1230PM">85</td>
+          <td class="td0100PM">92</td>
+          <td class="td0130PM">79</td>
+          <td class="td0200PM">96</td>
+          <td class="td0230PM">68</td>
+          <td class="td0300PM">20</td>
+          <td class="td0330PM">23</td>
+          <td class="td0400PM">19</td>
+          <td class="td0430PM">81</td>
+          <td class="td0500PM">32</td>
+          <td class="td0530PM">09</td>
+          <td class="td0600PM">96</td>
+          <td class="td0630PM">02</td>
+          <td class="td0700PM">28</td>
+          <td class="td0730PM">13</td>
+          <td class="td0800PM">14</td>
+          <td class="td0830PM">57</td>
+          <td class="td0900PM">73</td>
+          <td class="td0930PM">62</td>
+          <td class="td1000PM">00</td>
+          <td class="td1030PM">73</td>
+          <td class="td1100PM">55</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- single-categories-play-section end -->
+
+
+  <section class="single-categories-play-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="single-cat-play-area">
+                    <div class="single-header d-flex justify-content-center">
+                        <div class="left d-flex">
+                            <div class="icon">
+                                <img src="assets/images/elements/jackpot-1.png" alt="">
+                            </div>
+                            <div class="content">
+                                <h3 class="title">36 Jodi</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-body">
+                        <div class="single-body-inner d-flex justify-content-center">
+                            <div class="play-card">
+                                <div class="play-card-inner text-center">
+                                    <div class="play-card-body">
+                                        <ul class="number-list" id="number-list">
+                                            <!-- Numbers will be populated here -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Function to fetch the latest 36 Jodi data from the API
+    async function fetchLatest36JodiData() {
+        try {
+            const response = await fetch('http://localhost:5000/latest36jodidata'); // Adjust the URL if necessary
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            const numberList = document.getElementById('number-list');
+
+            // Clear existing content
+            numberList.innerHTML = '';
+
+            // Populate the number list with fetched data
+            data.forEach(record => {
+                // Assuming 'numbers' is an array of individual numbers
+                record.numbers.forEach(number => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = number; // Each number gets its own <li>
+                    numberList.appendChild(listItem);
+                });
+            });
+        } catch (error) {
+            console.error('There was a problem with the fetch operation:', error);
+        }
+    }
+
+    // Call the function to fetch data when the page loads
+    document.addEventListener('DOMContentLoaded', fetchLatest36JodiData);
+</script>
+
+
+  <!-- overview-section start -->
+  <section class="overview-section section-padding border-top section-bg">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="section-header text-center">
+            <h2 class="section-title">Quick overview</h2>
+            <p>Basic Guide for Casuals looking to step up how to get started </p>
+          </div>
+        </div>
+      </div>
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="overview-item text-center">
+            <div class="icon"><img src="images/1.svg" alt="icon"></div>
+            <div class="content">
+              <h3 class="title">How to Play</h3>
+              <p>Select numbers between 00-99 at different times and win. The results are updated every 30 minutes, with
+                the last winning result at 11:30 PM. Good luck!</p>
+
+
+            </div>
+          </div>
+        </div><!-- overview-item end -->
+        <div class="col-lg-4 col-md-6">
+          <div class="overview-item text-center">
+            <div class="icon"><img src="images/2.svg" alt="icon"></div>
+            <div class="content">
+              <h3 class="title">Why play with Mahakal Jackpot</h3>
+              <p>you have a chance to win every 30 minutes with an 80% winning probability. Don’t miss out on your
+                opportunity to win big!</p>
+
+            </div>
+          </div>
+        </div><!-- overview-item end -->
+        <div class="col-lg-4 col-md-6">
+          <div class="overview-item text-center">
+            <div class="icon"><img src="images/3.svg" alt="icon"></div>
+            <div class="content">
+              <h3 class="title">When’s the draw?</h3>
+              <p>The draw takes place every 30 minutes, giving you multiple chances to win throughout the day. Stay
+                tuned for the next draw and increase your chances of winning!</p>
+            </div>
+          </div>
+        </div><!-- overview-item end -->
+      </div>
+    </div>
+  </section>
+  <!-- overview-section end -->
+
+  <!-- footer-section start -->
+  <footer class="footer-section">
+    <div class="footer-top border-top border-bottom has_bg_image" data-background="images/bg-four.jpg">
+      <div class="footer-top-first">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-5 col-sm-4 text-center text-sm-start">
+              <a class="site-logo site-title" href="index.html">
+                <span class="first-letter" style="color: #df2a44; font-size: 37px;">M</span>ahakal Jackpot
+            </a>            </div>
+            <div class="col-lg-6 col-md-7 col-sm-8">
+              <div class="number-count-part d-flex">
+                <div class="number-count-item">
+                  <span class="number">2,3402,233</span>
+                  <p>TOTAL MEMBERS</p>
+                </div>
+                <div class="number-count-item">
+                  <span class="number">1,9402,575</span>
+                  <p>TOTAL winner</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-lg-6 col-sm-7">
+            <div class="copy-right-text">
+              <p>Copyright © 2024 <a href="#">Mahakal Jackpot</a> - All Rights Reserved.</p>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-5">
+            <ul class="footer-social-links d-flex justify-content-end">
+              <li><a href="#0"><i class="fa fa-whatsapp"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer-section end -->
+
+  <!-- scroll-to-top start -->
+  <div class="scroll-to-top">
+    <span class="scroll-icon">
+      <i class="fa fa-angle-up"></i>
+    </span>
+  </div>
+  <!-- scroll-to-top end -->
+
+  <script data-cfasync="false" src="js/email-decode.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <!-- bootstrap js file -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- flipclock js file -->
+  <script src="js/flipclock.min.js"></script>
+  <!-- countdown js file -->
+  <script src="js/jquery.countdown.min.js"></script>
+  <!-- slick js file -->
+  <script src="js/slick.min.js"></script>
+  <!-- swiper js file -->
+  <script src="js/swiper.min.js"></script>
+  <!-- lightcase js file -->
+  <script src="js/lightcase.js"></script>
+  <!-- wow js file -->
+  <script src="js/wow.min.js"></script>
+  <!-- vamp js files -->
+  <script src="js/jquery.vmap.min.js"></script>
+  <script src="js/jquery.vmap.world.js"></script>
+  <!-- main script js file -->
+  <script src="js/main.js"></script>
+  <script>
+    // Auto-Increment Winners (increases gradually)
+    function incrementWinners(elementId, incrementValue) {
+      const winnerElement = document.getElementById(elementId);
+      let currentWinners = parseInt(winnerElement.textContent.replace(/,/g, ''));
+
+      setInterval(() => {
+        currentWinners += incrementValue;
+        winnerElement.textContent = currentWinners.toLocaleString();
+      }, 1000); // Increment every 1 second
+    }
+
+    // Auto-Decrement Members (decreases gradually)
+    function decrementMembers(elementId, decrementValue) {
+      const memberElement = document.getElementById(elementId);
+      let currentMembers = parseInt(memberElement.textContent.replace(/,/g, ''));
+
+      setInterval(() => {
+        currentMembers -= decrementValue;
+        memberElement.textContent = currentMembers.toLocaleString();
+      }, 1000); // Decrement every 1 second
+    }
+
+    // Initialize the auto-increment and auto-decrement on window load
+    window.onload = function () {
+      incrementWinners('totalWinners', 3); // Increase winners by 3 every second
+      decrementMembers('totalMembers', 2); // Decrease members by 2 every second
+    };
+  </script>
+
+  <script>
+    function updateVisitors() {
+      // Generate a random number of active visitors between 1000 and 5000
+      let newVisitors = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
+
+      // Update the DOM with the new visitor count
+      document.querySelector('.amount').textContent = newVisitors;
+    }
+
+    // Update visitors every 3 seconds
+    setInterval(updateVisitors, 3000);
+  </script>
+  <script>
+    // Function to fetch data from the API
+    function fetchData() {
+      fetch('http://127.0.0.1:5000/get_data')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Get the table body and header elements
+          const tableBody = document.getElementById('data-table-body');
+          const tableHeader = document.getElementById('table-header');
+
+          // Clear existing table rows and header
+          tableBody.innerHTML = '';
+          tableHeader.innerHTML = '';
+
+          // Define time slots
+          const timeSlots = [
+            "Date", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM",
+            "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM",
+            "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM",
+            "05:30 PM", "06:00 PM", "06:30 PM", "07:00 PM", "07:30 PM",
+            "08:00 PM", "08:30 PM", "09:00 PM", "09:30 PM", "10:00 PM",
+            "10:30 PM", "11:00 PM"
+          ];
+
+          // Create header row
+          for (const time of timeSlots) {
+            const th = document.createElement('th');
+            th.textContent = time; // Set header text
+            tableHeader.appendChild(th); // Append to header
+          }
+
+          // Check if we have any records
+          if (data.length > 0) {
+            // Iterate through all records in the data
+            data.forEach(record => {
+              // Create a single row for the data
+              const row = document.createElement('tr');
+
+              // Add date to the row
+              const dateCell = document.createElement('td');
+              dateCell.textContent = record.Date; // Set the date dynamically
+              row.appendChild(dateCell); // Append date cell to the row
+
+              // Iterate over the time slots and populate the row with values
+              for (let i = 1; i < timeSlots.length; i++) { // Start from index 1 to skip the Date
+                const time = timeSlots[i];
+                const value = record[time] !== undefined ? record[time] : "N/A"; // Default to "N/A" if value doesn't exist
+                const cell = document.createElement('td');
+                cell.textContent = value; // Set value dynamically
+                row.appendChild(cell); // Append value cell to the row
+              }
+
+              // Append the row to the table body
+              tableBody.appendChild(row);
+            });
+          }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    }
+
+    // Fetch data when the page loads
+    window.onload = fetchData;
+  </script>
+
+
+
+
+  <script>
+    // Function to fetch the latest lottery number, draw date, and draw time
+    function fetchLatestNumber() {
+      fetch('http://127.0.0.1:5000/latest_number')
+        .then(response => response.json())
+        .then(data => {
+          // Update the lottery number and draw date/time displays
+          const lotteryNumberDisplay = document.getElementById('lottery-number');
+          const drawDateDisplay = document.getElementById('draw-date');
+          const drawTimeDisplay = document.querySelector('.highlight-time'); // Select the time display element
+
+          if (data.latest_value) {
+            lotteryNumberDisplay.textContent = data.latest_value; // Update with the latest value
+            drawDateDisplay.textContent = `Draw Date: ${data.draw_date}`; // Update with draw date
+            drawTimeDisplay.textContent = `Time: ${data.draw_time}`; // Update with draw time
+          } else {
+            lotteryNumberDisplay.textContent = "No value set"; // Default message
+            drawDateDisplay.textContent = "Draw Date: N/A"; // Default message
+            drawTimeDisplay.textContent = "Time: N/A"; // Default message
+          }
+        })
+        .catch(error => console.error('Error fetching latest number:', error));
+    }
+
+    // Fetch the latest number when the page loads
+    window.onload = function () {
+      fetchLatestNumber(); // Fetch latest number on load
+      fetchData(); // Assuming you still want to fetch the table data
+    };
+  </script>
+</body>
+
+</html>

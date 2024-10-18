@@ -73,10 +73,18 @@ a,a:focus, a:hover {
   text-decoration: none;
   color: inherit;
 }
-p, span, li {
+p, li {
   margin: 0;
   font-family: var(--para-font);
   color: var(--para-color);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+span {
+  margin: 0;
+  font-family: var(--para-font);
+  color: #fff;
   line-height: 1.7;
   font-size: 16px;
 }

@@ -1,178 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Include SweetAlert2 CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
-<!-- Include SweetAlert2 JS -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mahakal Jackpot - Play Big, Win Bigger</title>
-    <!-- site favicon -->
-    <link rel="shortcut icon" type="image/png" href="/images/favicon.jpg">
-    <!-- fontawesome css link -->
-    <link rel="stylesheet" href="/css/fontawesome.min.css">
-    <!-- bootstrap css link -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <!-- animate css link -->
-    <link rel="stylesheet" href="/css/animate.css">
-    <!-- lightcase css link -->
-    <link rel="stylesheet" href="/css/lightcase.css">
-    <!-- slick css link -->
-    <link rel="stylesheet" href="/css/slick.css">
-    <!-- swiper css link -->
-    <link rel="stylesheet" href="/css/swiper.min.css">
-    <!-- flipclock css link -->
-    <link rel="stylesheet" href="/css/flipclock.css">
-    <!-- jqvmap css link -->
-    <link rel="stylesheet" href="/css/jqvmap.min.css">
-    <!-- main style css link -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- responsive css link -->
-    <link rel="stylesheet" href="/css/responsive.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mahakal Jackpot - Play Big, Win Bigger</title>
+  <!-- site favicon -->
+  <link rel="shortcut icon" type="image/png" href="images/favicon.jpg">
+  <!-- fontawesome css link -->
+  <link rel="stylesheet" href="css/fontawesome.min.css">
+  <!-- bootstrap css link -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- animate css link -->
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- lightcase css link -->
+  <link rel="stylesheet" href="css/lightcase.css">
+  <!-- slick css link -->
+  <link rel="stylesheet" href="css/slick.css">
+  <!-- swiper css link -->
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <!-- flipclock css link -->
+  <link rel="stylesheet" href="css/flipclock.css">
+  <!-- jqvmap css link -->
+  <link rel="stylesheet" href="css/jqvmap.min.css">
+  <!-- main style css link -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- responsive css link -->
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 
 <body>
 
-    <!-- preloader start -->
-    <div id="preloader"></div>
-    <!-- preloader end -->
+  <!-- preloader start -->
+  <div id="preloader"></div>
+  <!-- preloader end -->
 
-    <!--  header-section start  -->
-    <header class="header-section">
-        <div class="header-bottom">
-            <div class="container">
-                <nav class="navbar navbar-expand-xl justify-content-center">
-                    <a class="site-logo site-title" href="/">Mahakal Jackpot</a>
-                    <button class="navbar-toggler d-sm-none" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="menu-toggle d-sm-none"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-between d-sm-none" id="navbarSupportedContent">
-                        <ul class="navbar-nav main-menu ms-auto">
-                            <li><a href="contact.html"></a></li>
-                        </ul>
-                        <div class="header-join-part d-sm-none">
-                            <button type="button" class="cmn-btn" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">join
-                                us</button>
-                        </div>
-                    </div>
-                </nav>
+  <!--  header-section start  -->
+  <header class="header-section">
+    <div class="header-bottom">
+      <div class="container">
+        <nav class="navbar navbar-expand-xl">
+          <a class="site-logo site-title" href="index.html">
+            <span class="first-letter" style="color: #df2a44; font-size: 37px;">M</span>ahakal Jackpot
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="menu-toggle"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+            <ul class="navbar-nav main-menu ms-auto">
+              <li><a href="#"></a></li>
+            </ul>
+            <div class="header-join-part">
+              <button type="button" class="cmn-btn" style="background-color:#000;" data-bs-toggle="modal" data-bs-target="#exampleModal">join
+                us</button>
             </div>
-        </div><!-- header-bottom end -->
-    </header>
-    <!--  header-section end  -->
+          </div>
+        </nav>
+      </div>
+    </div><!-- header-bottom end -->
+  </header>
+  <!--  header-section end  -->
 
-     <!--login registration Modal -->
-<!--  login registration Modal -->
-<div class="modal fade login-registration-modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal fade login-registration-modal" id="exampleModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="login-registration-area">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Update Lottery Number</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-                            <form class="login-form cmn-frm" id="lottery-number-form">
-                                <div class="frm-group">
-                                    <label>Enter Number</label>
-                                    <input type="text" name="lottery_number" id="lottery_number" placeholder="Enter Lottery Number" required>
-                                    <i class="fa fa-user"></i>
-                                </div>
-                                <div class="frm-group">
-                                    <input type="submit" name="submit_lottery_number" id="submit_lottery_number" value="Submit">
-                                </div>
-                            </form>
-                        </div>
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="login-registration-area">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Update Lottery Number</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                <form class="login-form cmn-frm" id="lottery-number-form">
+                  <div class="frm-group">
+                    <label>Select Option</label>
+                    <div class="select-container">
+                      <i class="fa fa-wrench"></i>
+                      <select id="select-option" required>
+                        <option value="" disabled selected>Select Option</option>
+                        <option value="lottery_number">Lottery Number</option>
+                        <option value="36_jodi">36 Jodi</option>
+                      </select>
                     </div>
-                </div>
+                  </div>
+  
+                  <!-- Lottery Number Input -->
+                  <div class="frm-group" id="lottery-number-group" style="display: none;">
+                    <label>Enter Lottery Number</label>
+                    <input type="text" name="lottery_number" id="lottery_number" placeholder="Enter 2-Digit Lottery Number" maxlength="2" pattern="\d{2}" >
+                    <i class="fa fa-user"></i>
+                  </div>
+  
+                  <!-- 36 Jodi Input -->
+                  <div class="frm-group" id="36-jodi-group" style="display: none;">
+                    <label>Enter 36 Jodi Numbers</label>
+                    <input type="text" name="jodi_number" id="jodi_number" placeholder="Enter 10 Numbers (e.g., 12,13,13,14,...)" >
+                    <i class="fa fa-users"></i>
+                  </div>
+  
+                  <div class="frm-group">
+                    <input type="submit" name="submit" id="submit" value="Submit">
+                  </div>
+                </form>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+  
+  <script>
+    document.getElementById('select-option').addEventListener('change', function () {
+    const selectedOption = this.value;
+    const lotteryNumberGroup = document.getElementById('lottery-number-group');
+    const jodiGroup = document.getElementById('36-jodi-group');
 
-<script>
-    document.getElementById('lottery-number-form').addEventListener('submit', async function(event) {
-        event.preventDefault(); // Prevent the default form submission
+    lotteryNumberGroup.style.display = selectedOption === 'lottery_number' ? 'block' : 'none';
+    jodiGroup.style.display = selectedOption === '36_jodi' ? 'block' : 'none';
 
-        // Get the lottery number from the input and convert it to an integer
-        const lotteryNumber = parseInt(document.getElementById('lottery_number').value, 10);
+    console.log(`Lottery number group is now ${lotteryNumberGroup.style.display}`);
+    console.log(`Jodi group is now ${jodiGroup.style.display}`);
+});
 
-        // Validate the input number
-        if (isNaN(lotteryNumber) || lotteryNumber < 0 || lotteryNumber > 99) {
+document.getElementById('lottery-number-form').addEventListener('submit', async function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const selectedOption = document.getElementById('select-option').value;
+
+    if (selectedOption === 'lottery_number') {
+        const lotteryNumberInput = document.getElementById('lottery_number');
+
+        // Ensure input is displayed before validation
+        lotteryNumberInput.style.display = 'block'; // Make sure it’s visible
+
+        const lotteryNumber = lotteryNumberInput.value;
+
+        // Validate lottery number
+        if (!lotteryNumber.match(/^\d{2}$/)) {
             await Swal.fire({
                 icon: 'error',
                 title: 'Invalid Input',
-                text: 'Please enter a number between 0 and 99.',
+                text: 'Please enter a valid 2-digit number.',
                 confirmButtonText: 'OK'
             });
+            lotteryNumberInput.focus(); // Focus on the input
             return; // Stop execution if the input is invalid
         }
 
-        // Prepare the data to be sent in the POST request
-        const data = {
-            number: lotteryNumber // Use the key 'number' to match the backend
-        };
+        const data = { number: lotteryNumber }; // Prepare the data to be sent
 
+        // Fetch for lottery number submission
         try {
-            // Send a POST request to the submit_data API
-            const response = await fetch('http://localhost:5000/submit_data', {
+            const response = await fetch('https://api.mahakaljackpot.com/submit_data', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
 
-            const result = await response.json(); // Parse the JSON response
-
-            if (response.ok) {
-                // Submission successful
-                await Swal.fire({
-                    icon: 'success',
-                    title: 'Number Submitted',
-                    text: result.message, // Adjust the message based on your API response
-                    confirmButtonText: 'OK'
-                });
-
-                // Optionally, close the modal or reset the form
-                const modal = bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
-                modal.hide();
-                document.getElementById('lottery-number-form').reset(); // Reset the form
-            } else {
-                // Submission failed
-                await Swal.fire({
-                    icon: 'error',
-                    title: 'Submission Failed',
-                    text: result.error, // Adjust based on your API response
-                    confirmButtonText: 'Try Again'
-                });
-            }
+            const result = await response.json();
+            await handleResponse(response, result, 'Lottery Number Submitted');
         } catch (error) {
-            console.error('Error:', error);
+            await handleError(error, 'lottery number');
+        }
+    } else if (selectedOption === '36_jodi') {
+        const jodiNumbersInput = document.getElementById('jodi_number');
+        const jodiNumbers = jodiNumbersInput.value;
+
+        // Validate 36 Jodi numbers format
+        if (!jodiNumbers.match(/^(\d{2}(,\d{2}){0,9})?$/)) {
             await Swal.fire({
                 icon: 'error',
-                title: 'Error',
-                text: 'An error occurred while submitting the lottery number. Please try again.',
+                title: 'Invalid Input',
+                text: 'Please enter valid Jodi numbers, separated by commas. Example: 12,13,14,...',
                 confirmButtonText: 'OK'
             });
+            jodiNumbersInput.focus(); // Focus on the input
+            return; // Stop execution if the input is invalid
         }
+
+        const data = { numbers: jodiNumbers }; // Prepare the data to be sent
+
+        // Fetch for 36 Jodi numbers submission
+        try {
+            const response = await fetch('https://api.mahakaljackpot.com/submit_multiple_numbers', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            await handleResponse(response, result, 'Jodi Numbers Submitted');
+        } catch (error) {
+            await handleError(error, 'Jodi numbers');
+        }
+    }
+});
+
+async function handleResponse(response, result, type) {
+    if (response.ok) {
+        await Swal.fire({
+            icon: 'success',
+            title: type,
+            text: result.message,
+            confirmButtonText: 'OK'
+        });
+
+        // Close modal and reset form
+        document.getElementById('lottery-number-form').reset(); // Reset the form
+        document.getElementById('lottery-number-group').style.display = 'none'; // Hide lottery number input
+        document.getElementById('36-jodi-group').style.display = 'none'; // Hide 36 jodi input
+        document.getElementById('select-option').selectedIndex = 0; // Reset select option
+    } else {
+        await Swal.fire({
+            icon: 'error',
+            title: 'Submission Failed',
+            text: result.error,
+            confirmButtonText: 'Try Again'
+        });
+    }
+}
+
+async function handleError(error, type) {
+    console.error('Error:', error);
+    await Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: `An error occurred while submitting the ${type}. Please try again.`,
+        confirmButtonText: 'OK'
     });
-</script>
+}
 
 
-    <!-- contact-section start -->
+  </script>
+  
+  
+
+
+  <!-- contact-section start -->
   <section class="contact-section">
     <div class="container">
       <div class="row">
@@ -183,95 +258,100 @@
                 <h3 class="title">Admin</h3>
                 <!-- <p>If you have any questions or queries our helpful support team will be more than happy to assist.</p> -->
                 <form class="login-form cmn-frm" id="login-form">
-                    <div class="frm-group">
-                        <label>Username or Email Address</label>
-                        <input type="email" name="username" id="login_email" placeholder="Username or Email Address" required>
-                        <i class="fa fa-user"></i>
+                  <div class="frm-group">
+                    <label>Username or Email Address</label>
+                    <input type="email" name="username" id="login_email" placeholder="Username or Email Address"
+                      required>
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <div class="frm-group">
+                    <label>Password</label>
+                    <input type="password" name="password" id="login_pass" placeholder="Enter Password" required>
+                    <i class="fa fa-lock"></i>
+                  </div>
+                  <div class="frm-group">
+                    <input type="submit" name="registration_submit2" id="registration_submit2" value="Login">
+                  </div>
+                  <div class="frm-group">
+                    <div class="checkbox-area">
+                      <input type="checkbox" id="login_remember_pass">
+                      <label for="login_remember_pass">Remember Password</label>
                     </div>
-                    <div class="frm-group">
-                        <label>Password</label>
-                        <input type="password" name="password" id="login_pass" placeholder="Enter Password" required>
-                        <i class="fa fa-lock"></i>
+                  </div>
+                  <div class="frm-group">
+                    <div class="or-text">
+                      <span>use admin login password</span>
                     </div>
-                    <div class="frm-group">
-                        <input type="submit" name="registration_submit2" id="registration_submit2" value="Login">
-                    </div>
-                    <div class="frm-group">
-                        <div class="checkbox-area">
-                            <input type="checkbox" id="login_remember_pass">
-                            <label for="login_remember_pass">Remember Password</label>
-                        </div>
-                    </div>
-                    <div class="frm-group">
-                        <div class="or-text">
-                            <span>use admin login password</span>
-                        </div>
-                    </div>
+                  </div>
                 </form>
-                
+
                 <script>
-                    document.getElementById('login-form').addEventListener('submit', async function(event) {
-                        event.preventDefault(); // Prevent the default form submission
-                
-                        // Get values from the form
-                        const username = document.querySelector('input[name="username"]').value; // Use name attribute to access
-                        const password = document.querySelector('input[name="password"]').value; // Use name attribute to access
-                
-                        // Prepare the data to be sent in the POST request
-                        const data = {
-                            username: username,
-                            password: password
-                        };
-                
-                        try {
-                            // Send a POST request to the login API
-                            const response = await fetch('http://localhost:5000/login', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify(data)
-                            });
-                
-                            const result = await response.json(); // Parse the JSON response
-                
-                            if (response.ok) {
-                                // Login successful
-                                await Swal.fire({
-                                    icon: 'success',
-                                    title: 'Login Successful',
-                                    text: result.message,
-                                    confirmButtonText: 'OK'
-                                });
-                
-                                // Show the modal
-                                const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
-                                modal.show();
-                            } else {
-                                // Login failed
-                                await Swal.fire({
-                                    icon: 'error',
-                                    title: 'Login Failed',
-                                    text: result.error,
-                                    confirmButtonText: 'Try Again'
-                                });
-                            }
-                        } catch (error) {
-                            console.error('Error:', error);
-                            await Swal.fire({
-                                icon: 'error',
-                                title: 'Error',
-                                text: 'An error occurred while logging in. Please try again.',
-                                confirmButtonText: 'OK'
-                            });
-                        }
+                  document.getElementById('login-form').addEventListener('submit', async function (event) {
+                  event.preventDefault(); // Prevent the default form submission
+
+                  // Get values from the form
+                  const username = document.querySelector('input[name="username"]').value; // Use name attribute to access
+                  const password = document.querySelector('input[name="password"]').value; // Use name attribute to access
+
+                  // Prepare the data to be sent in the POST request
+                  const data = {
+                    username: username,
+                    password: password
+                  };
+
+                  try {
+                    // Send a POST request to the login API
+                    const response = await fetch('https://api.mahakaljackpot.com/login', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify(data)
                     });
+
+                    console.log('Response:', response); // Log the full response
+
+                    const result = await response.json(); // Parse the JSON response
+                    console.log('Result:', result); // Log the result object
+
+                    if (response.ok) {
+                      // Login successful
+                      await Swal.fire({
+                        icon: 'success',
+                        title: 'Login Successful',
+                        text: result.message,
+                        confirmButtonText: 'OK'
+                      });
+
+                      // Show the modal
+                      const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+                      modal.show();
+                    } else {
+                      // Login failed
+                      await Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed',
+                        text: result.error || 'Login failed. Please try again.',
+                        confirmButtonText: 'OK'
+                      });
+                    }
+                  } catch (error) {
+                    console.error('Error:', error);
+                    await Swal.fire({
+                      icon: 'error',
+                      title: 'Error',
+                      text: 'An error occurred while logging in. Please try again.',
+                      confirmButtonText: 'OK'
+                    });
+                  }
+              });
+
                 </script>
-                
-                
-                
+
+
+
               </div><!-- contact-form-area end -->
-              <div class="address-area has_bg_image" data-background="/images/contact-mg.jpg">
+              <div class="address-area has_bg_image" data-background="images/contact-mg.jpg">
                 <!-- <div class="address-area-header">
                   <h3 class="title">We Are Available</h3>
                   <span>24 Hours A Day, 365 Days A Year</span>
@@ -304,34 +384,34 @@
   </section>
   <!-- contact-section end -->
 
-  
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="/js/jquery-3.3.1.min.js"></script>
-    <!-- bootstrap js file -->
-    <script src="/js/bootstrap.min.js"></script>
-    <!-- flipclock js file -->
-    <script src="/js/flipclock.min.js"></script>
-    <!-- countdown js file -->
-    <script src="/js/jquery.countdown.min.js"></script>
-    <!-- slick js file -->
-    <script src="/js/slick.min.js"></script>
-    <!-- swiper js file -->
-    <script src="/js/swiper.min.js"></script>
-    <!-- lightcase js file -->
-    <script src="/js/lightcase.js"></script>
-    <!-- wow js file -->
-    <script src="/js/wow.min.js"></script>
-    <!-- vamp js files -->
-    <script src="/js/jquery.vmap.min.js"></script>
-    <script src="/js/jquery.vmap.world.js"></script>
-    <!-- google map init js file -->
-    <script src="/js/goolg-map-activate.js"></script>
-    <!-- google map api -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqFuLx8S7A8eianoUhkYMeXpGPvsXp1NM&amp;callback=initMap"
-        async defer></script>
-    <!-- main script js file -->
-    <script src="/js/main.js"></script>
+  <!--  -->
+
+  <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <!-- bootstrap js file -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- flipclock js file -->
+  <script src="js/flipclock.min.js"></script>
+  <!-- countdown js file -->
+  <script src="js/jquery.countdown.min.js"></script>
+  <!-- slick js file -->
+  <script src="js/slick.min.js"></script>
+  <!-- swiper js file -->
+  <script src="js/swiper.min.js"></script>
+  <!-- lightcase js file -->
+  <script src="js/lightcase.js"></script>
+  <!-- wow js file -->
+  <script src="js/wow.min.js"></script>
+  <!-- vamp js files -->
+  <script src="js/jquery.vmap.min.js"></script>
+  <script src="js/jquery.vmap.world.js"></script>
+  <!-- google map init js file -->
+  <script src="js/goolg-map-activate.js"></script>
+  <!-- google map api -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqFuLx8S7A8eianoUhkYMeXpGPvsXp1NM&amp;callback=initMap"
+    async defer></script>
+  <!-- main script js file -->
+  <script src="js/main.js"></script>
 </body>
 
 <!-- Mirrored from www.pixner.net/sorteo/Sorteo/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 16 Oct 2024 15:13:19 GMT -->

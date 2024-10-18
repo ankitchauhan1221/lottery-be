@@ -553,7 +553,7 @@ span.is-active:after {
   -o-transition: all 0.3s;
 }
 .login-registration-area .nav-tabs .nav-item .nav-link.active {
-  background-color: var(--main-color);
+  background-color: #000;
   color: #ffffff;
 }
 .cmn-frm label {
@@ -580,7 +580,7 @@ span.is-active:after {
   -o-border-radius: 10px;
 }
 .cmn-frm input[type="submit"] {
-  background-color: var(--main-color);
+  background-color: #000;
   cursor: pointer;
   padding: 10px 15px;
   border: none;
@@ -1113,7 +1113,7 @@ table th {
   font-family: var(--heading-font);
   font-weight: 400;
   text-transform: capitalize;
-  color: var(--heading-color);
+  color: #fff;
   background-color: #f1f2f4;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -1133,9 +1133,9 @@ table tbody tr:nth-child(odd) {
 table tbody tr:nth-child(even) {
   background-color: #f1f2f4;
 }
-table tr td:first-child {
+/* table tr td:first-child {
   padding-left: 20px;
-}
+} */
 .lottery-winning-num-table .winner-name {
   margin-left: 10px;
   font-size: 14px;
@@ -1153,7 +1153,7 @@ table tr td:first-child {
   height: 30px;
   color: var(--heading-color);
   border: 1px solid #9fa1a7;
-  font-size: 14px;
+  font-size: 30px;
   text-align: center;
   line-height: 30px;
   display: inline-block;
@@ -1164,12 +1164,12 @@ table tr td:first-child {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
-.number-list li.active {
+/* .number-list li.active {
   background-color: var(--main-color);
   border-color: var(--main-color);
   color: #ffffff;
   box-shadow: 0 10px 10px 0 rgba(51, 181, 247, 0.15);
-}
+} */
 .winner-part {
   background-color: #ffffff;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
@@ -2563,7 +2563,7 @@ div[class*="position"] .details .area {
   font-family: var(--heading-font);
   font-size: 28px;
   font-weight: 700;
-  color: var(--main-color);
+  color: #d54056;
 }
 .number-count-item p {
   font-size: 14px;
@@ -2640,7 +2640,7 @@ div[class*="position"] .details .area {
   background-color: #ffffff;
 }
 .copy-right-text p a {
-  color: var(--main-color);
+  color: #000;
 }
 .footer-social-links li+li {
   margin-left: 15px;
@@ -2666,7 +2666,7 @@ div[class*="position"] .details .area {
   -o-transition: all 0.3s;
 }
 .footer-social-links li a:hover {
-  color: var(--main-color);
+  color: #000;
   background-color: transparent;
   border-color: #e5e5e5;
 }
@@ -2844,6 +2844,12 @@ div[class*="position"] .details .area {
 .single-header .right .header-btn-area {
   margin-top: 15px;
 }
+@media only screen and (max-width: 768px) {
+  .single-header .right .header-btn-area {
+      margin-top: 0px; 
+  }
+}
+
 .single-header .right button+button {
   margin-left: 15px;
 }
@@ -2855,6 +2861,13 @@ div[class*="position"] .details .area {
   -ms-border-radius: 999px;
   -o-border-radius: 999px;
 }
+
+@media only screen and (max-width: 768px) {
+  .single-header .right #quick-pick-all {
+      padding: 0px 10px; 
+  }
+}
+
 .single-header .right #add-item,
 .single-header .right #delete-item {
   width: 45px;
@@ -2874,8 +2887,8 @@ div[class*="position"] .details .area {
   margin: 0 -4px;
 }
 .play-card {
-  -ms-flex: 0 0 20%;
-  flex: 0 0 20%;
+  /* -ms-flex: 0 0 20%; */
+  /* flex: 0 0 20%; */
   /* max-width: 20%; */
   position: relative;
   padding: 0 4px;
@@ -2937,20 +2950,19 @@ div[class*="position"] .details .area {
   border-top: 1px solid #ededed;
 }
 .play-card-body .number-list li {
-  width: 26px;
-  height: 26px;
-  line-height: 28px;
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
   border: none;
-  background-color: #f5f5f6;
+  background-color: #000;
   margin-top: 5px;
   margin-bottom: 5px;
-  color: rgba(51, 55, 69, 0.8);
-  cursor: pointer;
+  color: #fff;
 }
-.play-card-body .number-list li.active {
+/* .play-card-body .number-list li.active {
   background-color: var(--main-color);
   color: #ffffff;
-}
+} */
 .play-card-body .add-more-text {
   color: var(--main-color);
   font-style: italic;
@@ -3826,13 +3838,13 @@ div[class*="position"] .details .area {
   cursor: pointer;
   text-align: center;
   border-radius: 50%;
-  background-color: var(--main-color);
+  background-color: #fff;
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.15);
   line-height: 55px; 
 }
 .scroll-to-top .scroll-icon {
   font-size: 28px;
-  color: #ffffff;
+  color: #000;
   display: inline-block; 
 }
 #preloader {
@@ -3852,6 +3864,7 @@ div[class*="position"] .details .area {
   background-position: center;
   padding: 50px 0;
   text-align: center;
+  filter: grayscale(100%);
 }
 
 .inner-page-banner-area {
@@ -3862,7 +3875,7 @@ div[class*="position"] .details .area {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   padding: 20px;
   margin: 0 auto;
-  border: 2px dashed #33b5f7;
+  border: 2px dashed #000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -3871,7 +3884,7 @@ div[class*="position"] .details .area {
 }
 
 .ticket-header {
-  background-color: #33b5f7;
+  background-color: #000;
   color: #fff;
   padding: 10px;
   border-top-left-radius: 15px;
@@ -3885,11 +3898,13 @@ div[class*="position"] .details .area {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: #fff;
 }
 
 .ticket-header p {
   font-size: 14px;
   margin-top: 5px;
+  color: #fff;
 }
 
 .lottery-number-area {
@@ -3903,16 +3918,16 @@ div[class*="position"] .details .area {
 .lottery-number {
   font-size: 80px;
   font-weight: bold;
-  color: #33b5f7;
+  color: #000;
   background-color: #fff;
   padding: 20px 40px;
   border-radius: 10px;
-  border: 2px solid #33b5f7;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #000;
+  box-shadow: 0 4px 10px rgba(218, 214, 214, 0.2);
 }
 
 .ticket-footer {
-  background-color: #33b5f7;
+  background-color:#000;
   color: #fff;
   padding: 10px;
   border-bottom-left-radius: 15px;
@@ -3925,6 +3940,7 @@ div[class*="position"] .details .area {
   margin: 5px 0;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: #fff;
 }
 
 /* Highlighting the time */
@@ -3932,7 +3948,7 @@ div[class*="position"] .details .area {
   font-size: 18px; /* Increased font size */
   font-weight: bold;
   color: #ffffff; /* Text color */
-  background-color: #33b5f7; /* Background color */
+  background-color: #000; /* Background color */
   padding: 8px 12px; /* Padding for spacing */
   border-radius: 8px; /* Rounded corners */
   margin: 10px 0; /* Margin for spacing */
@@ -3949,7 +3965,7 @@ div[class*="position"] .details .area {
 .color-version-area {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #33b5f7; /* Adjust this color to match your design */
+  color: #000; /* Adjust this color to match your design */
 }
 
 button {
@@ -3962,7 +3978,7 @@ button {
 
 @media screen and (max-width: 768px) {
   .title-1 {
-    font-size: 28px!important; 
+    font-size: 18px!important; 
   }
 }
 @media screen and (max-width: 480px) {
@@ -3973,29 +3989,10 @@ button {
 
 .title-1 {
   font-size: 35px; 
+  color: #fff;
 }
 
-.table-responsive {
-  max-height: 400px; /* Set the maximum height for scrolling */
-  overflow-y: auto;  /* Enable vertical scrolling */
-  margin: 20px 0;    /* Optional margin */
-}
 
-.table {
-  width: 100%;        /* Ensure the table takes full width */
-}
-
-.table th, .table td {
-  padding: 10px;     /* Padding for cells */
-  border: 1px solid #ddd; /* Border styling */
-}
-
-.table th {
-  background-color: #f8f8f8; /* Header background */
-  position: sticky;  /* Enable sticky header */
-  top: 0;            /* Stick to the top */
-  z-index: 1;       /* Ensure it stays above other content */
-}
 
 
 .custom-banner-area {
@@ -4006,7 +4003,7 @@ button {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   padding: 20px;
   margin: 0 auto;
-  border: 2px dashed #33b5f7;
+  border: 2px dashed #000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -4076,4 +4073,116 @@ button {
   .navbar-toggler {
       display: none; /* Show on mobile screens */
   }
+}
+
+
+
+.laxmi-number {
+  background: #0d5778;
+  
+  padding: 15px;
+
+}
+
+.marquee {
+  background: white;
+  font-size: 20px;
+}
+
+
+.ldated {
+  font-size: 12px;
+}
+
+.mrname {
+  text-transform: capitalize;
+}
+
+.month_table {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.mrname {
+  font-size: 22px;
+}
+
+.month_table .table {
+  text-align: center;
+}
+
+.month_table .table td {
+  vertical-align: middle!important;
+}
+
+th {
+  text-align: center !important;
+}
+
+.bg-purple{
+  background:purple !important;
+}
+
+
+
+table, .thead,.table22, .table22 tr, .table22 td {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+
+.lottery {
+  background-color: #000; /* Set entire table background to black */
+  color: #fff; /* Set text color to white */
+}
+
+.lottery td, 
+.lottery th {
+  background-color: #000 !important; 
+  color: #fff !important; 
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  #quick-pick-all {
+      font-size: 16px;
+  }
+
+  #quick-pick-all i.fa-chevron-down {
+      margin-left: 5px; 
+      font-size: 18px; 
+  }
+}
+
+
+
+select {
+  word-wrap: normal;
+  width: 100%;
+  padding: 10px 15px 10px 55px;
+  border: 1px solid #efefef;
+  border-radius: 10px;
+  margin-bottom:10px;
+}
+
+
+.select-container {
+  position: relative;
+}
+
+.select-container select {
+  width: 100%;
+  padding: 10px 15px 10px 55px; 
+  border: 1px solid #efefef;
+  border-radius: 10px;
+}
+
+.select-container i {
+  position: absolute;
+  left: 15px; 
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; 
 }
