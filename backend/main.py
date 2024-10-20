@@ -72,7 +72,7 @@ def submit_data():
     number = data.get('number')
 
     # Validate that the number is an integer and in the range 0-99
-    if not isinstance(number, int) or number < 0 or number > 99:
+    if not isinstance(number, int) or number < 00 or number > 99:
         return jsonify({"error": "Number must be an integer between 0 and 99!"}), 400
 
     # Format the number as a two-digit string (e.g., 01, 05, 12)

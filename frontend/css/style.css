@@ -4186,3 +4186,26 @@ select {
   transform: translateY(-50%);
   pointer-events: none; 
 }
+
+@media only screen and (max-width: 600px) {
+  .select-container select {
+    padding: 10px 15px 10px 45px; 
+    font-size: 14px; 
+  }
+
+  .select-container i {
+    left: 10px;
+  }
+}
+
+
+.image-container {
+  width: 100%;
+  overflow: hidden; /* Ensures no unwanted overflow */
+}
+
+.image-container img {
+  width: 100%;
+  height: auto; /* Keeps the image's aspect ratio */
+  display: block; /* Removes any space below the image */
+}

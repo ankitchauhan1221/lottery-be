@@ -8,6 +8,30 @@
   <title>Mahakal Jackpot - Play Big, Win Bigger</title>
   <!-- site favicon -->
   <link rel="shortcut icon" type="image/png" href="images/favicon.jpg">
+  
+  <!-- SEO meta tags -->
+  <meta name="keywords" content="लॉटरी सट्टा 10 के 1000, महाकाल जैकपॉट, सट्टा 10 के 1000, सट्टा खेल, जैकपॉट नंबर, बड़ी जीत लॉटरी, जैकपॉट खेलें, सट्टा बाजार, Mahakal Jackpot, lottery game, win lottery, online lottery">
+  <meta name="description" content="महाकाल जैकपॉट में खेलें और बड़े इनाम जीतें! लॉटरी सट्टा 10 के 1000 खेलें और अपनी किस्मत आजमाएँ। महाकाल लॉटरी के साथ बड़ा खेलें, बड़ा जीतें। Play Mahakal Jackpot and win big! Join the jackpot game Satta 10/1000 to test your luck. Play big, win bigger with Mahakal jackpot.">
+  
+  <!-- Open Graph meta tags for social media sharing -->
+  <meta property="og:title" content="Mahakal Jackpot - Play Big, Win Bigger">
+  <meta property="og:description" content="महाकाल जैकपॉट में खेलें और बड़े इनाम जीतें! जैकपॉट सट्टा 10 के 1000 खेलें और अपनी किस्मत आजमाएँ। महाकाल जैकपॉट के साथ बड़ा खेलें, बड़ा जीतें। Play Mahakal Jackpot and win big! Join the jackpot game Satta 10/1000 to test your luck. Play big, win bigger with Mahakal jackpot.">
+  <meta property="og:image" content="https://https://mahakaljackpot.com//images/lordshiv.jpg">
+  <meta property="og:url" content="https://https://mahakaljackpot.com/">
+  <!-- <meta property="og:type" content="website"> -->
+  
+  <!-- Robots meta tag -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Author meta tag -->
+  <meta name="author" content="Mahakal Jackpot">
+
+  <!-- Language meta tag -->
+  <meta http-equiv="Content-Language" content="en, hi">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.mahakaljackpot.com/">
+
   <!-- fontawesome css link -->
   <link rel="stylesheet" href="css/fontawesome.min.css">
   <!-- bootstrap css link -->
@@ -30,11 +54,19 @@
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 
+<!-- <script>
+  document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+  });
+</script> -->
+
 <body>
 
   <!-- preloader start -->
   <div id="preloader"></div>
   <!-- preloader end -->
+
+  
 
   <!--  header-section start  -->
   <header class="header-section">
@@ -64,6 +96,10 @@
     </div><!-- header-bottom end -->
   </header>
   <!--  header-section end  -->
+
+  <div class="image-container">
+    <img src="images/lordshiv.jpg" alt="Full Width Image">
+  </div>
 
   <!-- inner-page-banner start -->
   <section class="inner-page-banner has_bg_image" data-background="images/inner-page-bg.jpg">
@@ -141,7 +177,7 @@
     console.log("Fetching latest data..."); // Log to confirm function call
 
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.mahakaljackpot.com/latest_dates', true);
+    xhr.open('GET', 'http://127.0.0.1:5000/latest_dates', true);
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -260,7 +296,7 @@ document.addEventListener('DOMContentLoaded', fetchLatestData);
       console.log("Fetching data from API..."); // Log to confirm function call
   
       const xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://api.mahakaljackpot.com/get_data', true);
+      xhr.open('GET', 'http://127.0.0.1:5000/get_data', true);
   
       xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -357,7 +393,7 @@ document.addEventListener('DOMContentLoaded', fetchLatestData);
     // Function to fetch the latest 36 Jodi data from the API
     async function fetchLatest36JodiData() {
         try {
-            const response = await fetch('https://api.mahakaljackpot.com/latest36jodidata'); // Adjust the URL if necessary
+            const response = await fetch('http://127.0.0.1:5000/latest36jodidata'); // Adjust the URL if necessary
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -555,7 +591,7 @@ document.addEventListener('DOMContentLoaded', fetchLatestData);
   <script>
     // Function to fetch data from the API
     function fetchData() {
-      fetch('https://api.mahakaljackpot.com/get_data')
+      fetch('http://127.0.0.1:5000/get_data')
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
@@ -627,7 +663,7 @@ document.addEventListener('DOMContentLoaded', fetchLatestData);
   <script>
     // Function to fetch the latest lottery number, draw date, and draw time
     function fetchLatestNumber() {
-      fetch('https://api.mahakaljackpot.com/latest_number')
+      fetch('http://127.0.0.1:5000/latest_number')
         .then(response => response.json())
         .then(data => {
           // Update the lottery number and draw date/time displays
